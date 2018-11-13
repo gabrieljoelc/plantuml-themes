@@ -1,0 +1,90 @@
+@startuml PlantUML Color Themes - Tomorrow Night Eighties
+
+' "Tomorrow night eighties" color theme (see https://github.com/chriskempson/tomorrow-theme)
+!define Background   #2d2d2d
+!define CurrentLine  #393939
+!define Selection    #515151
+!define Foregound    #cccccc
+!define Comment      #999999
+!define Red          #f2777a
+!define Orange       #f99157
+!define Yellow       #ffcc66
+!define Green        #99cc99
+!define Aqua         #66cccc
+!define Blue         #6699cc
+!define Purple       #cc99cc
+
+skinparam Shadowing false
+skinparam backgroundColor #2d2d2d
+skinparam Arrow {
+  Color Foregound
+  FontColor Foregound
+  FontStyle Bold
+}
+skinparam Default {
+  FontName Menlo
+  FontColor #fdfdfd
+}
+skinparam package {
+  FontColor Purple
+  BackgroundColor CurrentLine
+  BorderColor Selection
+}
+skinparam node {
+  FontColor Yellow
+  BackgroundColor CurrentLine
+  BorderColor Selection
+}
+skinparam component {
+  BackgroundColor Selection
+  BorderColor Blue
+  FontColor Blue
+  Style uml2
+}
+skinparam database {
+  BackgroundColor CurrentLine
+  BorderColor Selection
+  FontColor Orange
+}
+
+skinparam cloud {
+  BackgroundColor CurrentLine
+  BorderColor Selection
+}
+
+skinparam interface {
+  BackgroundColor CurrentLine
+  BorderColor Selection
+  FontColor Green
+}
+
+package "Some Group" {
+  HTTP - [First Component]
+  [Another Component]
+}
+ 
+node "Other Groups" {
+  FTP - [Second Component]
+  [First Component] --> FTP
+} 
+
+cloud {
+  [Example 1]
+}
+
+
+database "MySql" {
+  folder "This is my folder" {
+	[Folder 3]
+  }
+  frame "Foo" {
+	[Frame 4]
+  }
+}
+
+
+[Another Component] --> [Example 1]
+[Example 1] --> [Folder 3]
+[Folder 3] --> [Frame 4]
+
+@enduml
